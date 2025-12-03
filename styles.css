@@ -1,0 +1,290 @@
+:root {
+  --bg: #050814;
+  --bg-elevated: #0c1220;
+  --bg-elevated-soft: #101626;
+  --accent: #4f46e5;
+  --accent-soft: rgba(79, 70, 229, 0.18);
+  --accent-strong: #6366f1;
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+  --border-subtle: rgba(148, 163, 184, 0.35);
+  --shadow-soft: 0 24px 60px rgba(15, 23, 42, 0.9);
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --transition-fast: 0.16s ease-out;
+  --transition-med: 0.24s cubic-bezier(0.19, 0.72, 0.23, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at top, #111827 0, #020617 52%, #000 100%);
+  color: var(--text-main);
+  min-height: 100vh;
+}
+
+/* Shell Layout */
+
+.ebook-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+  gap: 24px;
+  max-width: 1240px;
+  margin: 24px auto;
+  padding: 16px;
+}
+
+.ebook-sidebar {
+  position: sticky;
+  top: 16px;
+  align-self: flex-start;
+  background: linear-gradient(145deg, #020617, #020617);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-soft);
+  padding: 18px 18px 16px;
+}
+
+/* Branding */
+
+.brand-kicker {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--accent-soft);
+}
+
+.brand-title {
+  margin: 6px 0 2px;
+  font-size: 1.5rem;
+  color: #f9fafb;
+}
+
+.brand-sub {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* TOC */
+
+.toc {
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 1px dashed rgba(148, 163, 184, 0.4);
+}
+
+.toc h2 {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.toc ol {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 0.9rem;
+  display: grid;
+  gap: 4px;
+}
+
+.toc a {
+  color: var(--text-main);
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 4px 8px;
+  display: inline-block;
+  transition: background var(--transition-fast), color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.toc a:hover {
+  background: var(--accent-soft);
+  color: #e5e7eb;
+  transform: translateX(1px);
+}
+
+/* Sidebar Footer */
+
+.sidebar-footer {
+  margin-top: 16px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(148, 163, 184, 0.4);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Main Content */
+
+.ebook-main {
+  background: radial-gradient(circle at top left, #111827 0, #020617 60%);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(31, 41, 55, 0.9);
+  box-shadow: var(--shadow-soft);
+  padding: 22px 24px 34px;
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+}
+
+/* Chapters */
+
+.chapter {
+  max-width: 780px;
+  margin: 0 auto 40px;
+  padding-bottom: 32px;
+  border-bottom: 1px dashed rgba(55, 65, 81, 0.7);
+}
+
+.chapter:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.chapter-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--accent-soft);
+  margin: 0 0 4px;
+}
+
+.chapter h2 {
+  margin: 0 0 10px;
+  font-size: 1.6rem;
+  color: #f9fafb;
+}
+
+.chapter h3 {
+  margin-top: 24px;
+  margin-bottom: 6px;
+  font-size: 1.1rem;
+  color: #e5e7eb;
+}
+
+.chapter p {
+  margin: 10px 0;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--text-main);
+}
+
+.chapter ul,
+.chapter ol {
+  margin: 8px 0 12px;
+  padding-left: 20px;
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+.chapter li + li {
+  margin-top: 2px;
+}
+
+/* Links */
+
+a {
+  color: var(--accent-strong);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Scrollbar styling (for modern browsers) */
+
+.ebook-main::-webkit-scrollbar {
+  width: 8px;
+}
+
+.ebook-main::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.ebook-main::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.6);
+  border-radius: 999px;
+}
+
+/* Responsive */
+
+@media (max-width: 880px) {
+  .ebook-shell {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 720px;
+    margin: 12px auto;
+  }
+
+  .ebook-sidebar {
+    position: static;
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
+  }
+
+  .ebook-main {
+    max-height: none;
+    margin-top: 4px;
+  }
+}
+
+/* Very small screens */
+
+@media (max-width: 520px) {
+  .ebook-main {
+    padding: 18px 14px 24px;
+  }
+
+  .chapter h2 {
+    font-size: 1.4rem;
+  }
+}
+
+/* Print / PDF */
+
+@media print {
+  body {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  .ebook-shell {
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+
+  .ebook-sidebar {
+    display: none;
+  }
+
+  .ebook-main {
+    max-height: none;
+    overflow: visible;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .chapter {
+    border: none;
+    page-break-after: always;
+  }
+
+  .chapter:last-child {
+    page-break-after: auto;
+  }
+}
